@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router";
 
 const ManageCustomers = () => {
   const [customers, setCustomers] = useState([]);
@@ -15,7 +16,7 @@ const ManageCustomers = () => {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/customers");
+      const res = await axios.get("http://localhost:4000/customers");
       setCustomers(res.data);
       setFilteredCustomers(res.data);
     } catch (err) {
@@ -27,7 +28,7 @@ const ManageCustomers = () => {
   const handleDelete = async (id) => {
     if (confirm("Bạn có chắc muốn xóa không !")) {
       try {
-        await axios.delete(`http://localhost:3001/customers/${id}`);
+        await axios.delete(`http://localhost:4000/customers/${id}`);
         const updated = customers.filter((customer) => customer.id !== id);
         setCustomers(updated);
         setFilteredCustomers(
@@ -111,6 +112,15 @@ const ManageCustomers = () => {
                     >
                       Xóa
                     </button>
+                    <Link
+                      to={`/admin/manage-customers/${encodeURIComponent(
+                        customer.name
+                      )}`}
+                    >
+                      <button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-xs">
+                        History
+                      </button>
+                    </Link>
                   </td>
                 </tr>
               ))

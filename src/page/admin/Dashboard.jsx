@@ -26,9 +26,9 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const resProducts = await API.get("http://localhost:3001/products");
-        const resOrders = await API.get("http://localhost:3001/orders");
-        const resCustomers = await API.get("http://localhost:3001/customers");
+        const resProducts = await API.get("http://localhost:4000/products");
+        const resOrders = await API.get("http://localhost:4000/orders");
+        const resCustomers = await API.get("http://localhost:4000/customers");
 
         setTotalProducts(resProducts.data.length);
         setTotalOrders(resOrders.data.length);
@@ -51,7 +51,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await API.get("http://localhost:3001/orders");
+        const res = await API.get("http://localhost:4000/orders");
         const data = res.data;
 
         setOrders(data);

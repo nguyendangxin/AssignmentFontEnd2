@@ -7,6 +7,11 @@ const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
 
+  const handleLogout = () => {
+    localStorage.removeItem("adminUser");
+    window.location.href = "/login";
+  };
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -45,35 +50,35 @@ const AdminLayout = () => {
             to="/admin/"
             className="flex items-center gap-2 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700"
           >
-        <i class="fa-solid fa-chart-pie"></i>
+            <i class="fa-solid fa-chart-pie"></i>
             {sidebarOpen && "Dashboard"}
           </Link>
           <Link
             to="/admin/manage-customers"
             className="flex items-center gap-2 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700"
           >
-        <i class="fa-solid fa-users"></i>
+            <i class="fa-solid fa-users"></i>
             {sidebarOpen && "Customers"}
           </Link>
           <Link
             to="/admin/manage-orders"
             className="flex items-center gap-2 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700"
           >
-        <i class="fa-solid fa-clipboard"></i>
+            <i class="fa-solid fa-clipboard"></i>
             {sidebarOpen && "Orders"}
           </Link>
           <Link
             to="/admin/manage-products"
             className="flex items-center gap-2 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700"
           >
-        <i class="fa-solid fa-box"></i>
+            <i class="fa-solid fa-box"></i>
             {sidebarOpen && "Products"}
           </Link>
           <Link
             to="/admin/manage-categories"
             className="flex items-center gap-2 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700"
           >
-        <i class="fa-solid fa-layer-group"></i>
+            <i class="fa-solid fa-layer-group"></i>
             {sidebarOpen && "Categories"}
           </Link>
         </nav>
@@ -99,7 +104,13 @@ const AdminLayout = () => {
             >
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <button className="text-gray-600 dark:text-gray-300">🔔</button>
+            <button
+              onClick={handleLogout}
+              className="text-red-500 font-semibold"
+            >
+              Đăng xuất
+            </button>
+
             <div className="flex items-center gap-2">
               <img
                 src="https://images.unsplash.com/photo-1741509541812-5d8f3e96df23?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D"

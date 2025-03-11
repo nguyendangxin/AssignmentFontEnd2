@@ -11,7 +11,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/products/${id}`);
+        const res = await axios.get(`http://localhost:4000/products/${id}`);
         setProduct(res.data);
       } catch (err) {
         console.error("Lỗi khi tải chi tiết sản phẩm:", err);

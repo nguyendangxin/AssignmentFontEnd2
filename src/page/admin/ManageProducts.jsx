@@ -27,7 +27,7 @@ const ManageProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/products");
+      const res = await axios.get("http://localhost:4000/products");
       setProducts(res.data);
     } catch (err) {
       console.error("Lỗi khi tải sản phẩm:", err);
@@ -39,10 +39,10 @@ const ManageProducts = () => {
     e.preventDefault();
     try {
       if (isEditing) {
-        await axios.put(`http://localhost:3001/products/${editId}`, form);
+        await axios.put(`http://localhost:4000/products/${editId}`, form);
         toast.success("Cập nhật sản phẩm thành công!");
       } else {
-        await axios.post("http://localhost:3001/products", form);
+        await axios.post("http://localhost:4000/products", form);
         toast.success("Thêm sản phẩm thành công!");
       }
       fetchProducts();
@@ -82,7 +82,7 @@ const ManageProducts = () => {
   const handleDelete = async (id) => {
     if (confirm("Bạn có chắc muốn xóa không !")) {
       try {
-        await axios.delete(`http://localhost:3001/products/${id}`);
+        await axios.delete(`http://localhost:4000/products/${id}`);
         toast.success("Xóa sản phẩm thành công!");
         fetchProducts();
       } catch (err) {

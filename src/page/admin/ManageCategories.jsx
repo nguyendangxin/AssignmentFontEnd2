@@ -17,7 +17,7 @@ const ManageCategories = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/categories");
+      const res = await axios.get("http://localhost:4000/categories");
       setCategories(res.data);
     } catch (err) {
       console.error("Lỗi khi tải danh mục:", err);
@@ -29,10 +29,10 @@ const ManageCategories = () => {
     e.preventDefault();
     try {
       if (isEditing) {
-        await axios.put(`http://localhost:3001/categories/${editId}`, form);
+        await axios.put(`http://localhost:4000/categories/${editId}`, form);
         toast.success("Cập nhật danh mục thành công!");
       } else {
-        await axios.post("http://localhost:3001/categories", form);
+        await axios.post("http://localhost:4000/categories", form);
         toast.success("Thêm danh mục thành công!");
       }
       fetchCategories();
@@ -54,7 +54,7 @@ const ManageCategories = () => {
   const handleDelete = async (id) => {
     if (confirm("Bạn có chắc muốn xóa không !")) {
       try {
-        await axios.delete(`http://localhost:3001/categories/${id}`);
+        await axios.delete(`http://localhost:4000/categories/${id}`);
         toast.success("Xóa danh mục thành công!");
         fetchCategories();
       } catch (err) {
