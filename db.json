@@ -1,9 +1,17 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": 1,
+      "name": "Nước hoa Dior Sauvage",
+      "price": 2500000,
+      "stock": 10,
+      "category": "Nam",
+      "description": "Hương thơm mạnh mẽ, nam tính"
+    }
+  ],
   "orders": [],
   "customers": [],
   "users": [
-    { "id": 1, "username": "admin", "password": "123456", "role": "admin" },
-    { "id": 2, "username": "staff", "password": "123456", "role": "staff" }
+    { "id": 1, "username": "admin", "password": "123456", "role": "admin" }
   ]
 }

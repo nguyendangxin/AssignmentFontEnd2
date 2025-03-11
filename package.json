@@ -11,6 +11,7 @@
     "server": "npx json-server db.json"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.12",
     "axios": "^1.8.2",
     "json-server-auth": "^2.1.0",
     "react": "^19.0.0",
