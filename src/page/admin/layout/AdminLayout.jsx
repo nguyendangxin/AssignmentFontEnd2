@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { Menu, X, Moon, Sun } from "lucide-react";
+import { ToastContainer } from "react-toastify";
 
 const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -135,6 +136,7 @@ const AdminLayout = () => {
           <p>© {new Date().getFullYear()} Admin Assigment fe2.</p>
         </footer>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

@@ -155,7 +155,6 @@ const Dashboard = () => {
         <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">
           Thống kê doanh thu
         </h2>
-
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           <div className="bg-blue-100 dark:bg-blue-900 p-4 rounded-xl shadow-md">
             <p className="text-gray-700 dark:text-white text-sm">
